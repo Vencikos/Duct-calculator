@@ -1,1 +1,1 @@
-# Venta-DK
+Static site for air-conditioning firm
