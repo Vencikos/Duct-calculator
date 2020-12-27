@@ -9,4 +9,4 @@ Calcualtor for air-conditioning ducts, square elbows and square transitions.
 -----------------------------------------------------------------------------------------------------
 * The inputs are added for calculation with the 'Add' button.
 * The results are added below the 'Results' field.
-* The results include the inputs from the user and weight(kg), area(m2).
+* The results include the inputs from the user and calculated values for weight(kg) and area(m2).
