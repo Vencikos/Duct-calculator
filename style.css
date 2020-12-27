@@ -1,77 +1,71 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+
+:root {
+  --green: #92c9b1;
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-    font-family: "Mukta", sans-serif;
+html,
+body {
+  font-family: "Mukta", sans-serif;
 }
 
-nav {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    height: 4rem;
-    background-color: #6B0504;
+body {
+  padding: 5rem 0;
 }
 
-nav ul {
-    padding-right: 1rem;
-    list-style-type: none;
-    
+footer {
+  background-color: #001524;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
 }
 
-nav li {
-    display: inline-block;
-    font-size: 1.5rem;
-    padding: 0.75rem 2rem;
-    color: white;
-    float: left;
-    cursor: pointer;
+p {
+  text-align: center;
 }
 
-nav li:hover {
-    background-color: #000;
+.fab {
+  color: #fff;
 }
 
-.background {
-    height: 100vh;
-    max-width: 100vw;
-    background-color: #E4DFDA;
+.fab:hover {
+  transform: scale(1.1);
+  color: #f7b538;
 }
 
-.containers {
-    display: flex;
-    flex-direction: row;
+.input-fields-container {
+  margin-bottom: 2rem;
 }
 
-.input-data {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 30rem;
-    width: 20%;
-    color: white;
-    background-color: #6B0504;
-    margin: 4rem 2rem;
-    border-radius: 1rem;
+.footer-text p {
+  font-size: 0.5rem;
+  margin: 0;
 }
 
-.input-data label {
-    padding: 0.5rem;
+.result-col {
+  background-color: bisque;
 }
 
-.input-data input {
-    margin-left: 1rem;
+.input-field {
+  margin-bottom: 1rem;
 }
 
-.result {
-    background-color: #6B0504;
-    width: 80%;
-    height: 30rem;
-    margin: 4rem 2rem;
-    border-radius: 1rem;
+.info-box {
+  border: 5px solid #000;
+}
+
+#social-icons-container {
+  margin-top: 0.2rem;
+}
+
+#social-icons {
+  width: 3%;
 }
