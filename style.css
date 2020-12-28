@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Mukta&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
 :root {
   --green: #92c9b1;
@@ -12,7 +12,7 @@
 
 html,
 body {
-  font-family: "Mukta", sans-serif;
+  font-family: 'Mukta', sans-serif;
 }
 
 body {
@@ -34,6 +34,7 @@ p {
 
 .fab {
   color: #fff;
+  margin: 1rem;
 }
 
 .fab:hover {
@@ -46,7 +47,7 @@ p {
 }
 
 .footer-text p {
-  font-size: 0.5rem;
+  font-size: 1rem;
   margin: 0;
 }
 
@@ -67,5 +68,5 @@ p {
 }
 
 #social-icons {
-  width: 3%;
+  width: 7%;
 }
