@@ -1,5 +1,7 @@
 'use strict';
 
+// Variables for the input fields
+
 const inputSelectEl = document.querySelector('.select-element');
 const inputSizeA = document.querySelector('#input-size-A');
 const inputSizeB = document.querySelector('#input-size-B');
@@ -7,18 +9,32 @@ const inputSizeC = document.querySelector('#input-size-C');
 const inputSizeD = document.querySelector('#input-size-D');
 const inputDegrees = document.querySelector('#input-degrees');
 const inputLength = document.querySelector('#input-length');
-const inputMaterial = document.querySelector('.select-material');
+const inputMaterialType = document.querySelector('.input-material-type');
+const inputMaterialThickness = document.querySelector(
+  '#input-material-thickness'
+);
 
-// Calc area function for different kind of elements
+//Variables for result fields
+
+const resultDescription = document.querySelector('.result-description');
+const resultDegrees = document.querySelector('.result-degrees');
+const resultLength = document.querySelector('.result-length');
+const resultMaterial = document.querySelector('.result-material');
+const resultArea = document.querySelector('.result-area');
+const resultWeight = document.querySelector('.result-weight');
+
+// Calculate area function  - calculates the area of the selected element
+
 const calcArea = function () {
+  let result = 0;
   if (inputSelectEl.value === 'Въздуховод') {
-    const result =
+    result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
       (Number(inputLength.value) / 1000);
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Коляно') {
-    const result =
+    result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
       (((Number(inputSizeA.value) / 1000) * Number(inputDegrees.value) * 3.14) /
         180 +
@@ -26,54 +42,193 @@ const calcArea = function () {
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Изместване') {
-
     //TODO
 
-    const result =
+    result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
       (Number(inputLength.value) / 1000);
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Преход правоъгълен към правоъгълен') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Преход към кръгъл') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Тройник') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Капак') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Смукател стенен') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Смукател островен') {
-    const result =
-      
+    result =
+      (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
+      (Number(inputLength.value) / 1000);
+
     //TODO
 
     return Number(result.toFixed(2));
   }
 };
 
-calcArea();
+// Calculate weight function - calculates the weight of the selected element
+
+const calcWeight = function () {
+  let result = 0;
+  if (inputMaterialType.value === 'Поцинкована') {
+    result = calcArea() * Number(inputMaterialThickness.value) * Number(8);
+    return Number(result.toFixed(2));
+  } else if (inputMaterialType.value === 'Черна') {
+    result = calcArea() * Number(inputMaterialThickness.value) * Number(7.8);
+    return Number(result.toFixed(2));
+  } else if (inputMaterialType.value === 'Алуминиева') {
+    result = calcArea() * Number(inputMaterialThickness.value) * Number(2.7);
+    return Number(result.toFixed(2));
+  } else if (inputMaterialType.value === 'Неръждаема') {
+    result = calcArea() * Number(inputMaterialThickness.value) * Number(8.5);
+    return Number(result.toFixed(2));
+  } else if (inputMaterialType.value === 'Медна') {
+    result = calcArea() * Number(inputMaterialThickness.value) * Number(8.9);
+    return Number(result.toFixed(2));
+  }
+};
+
+// Add new paragraph functions for eack element
+
+const addElementDescription = function () {
+  const newParagraph = document.createElement('p'); // Create a paragraph node
+  newParagraph.classList.add('para'); // Add class to the created element
+  if (inputSelectEl.value === 'Въздуховод') {
+    // Store an input value to  a variable
+    const resultDescriptionText = document.createTextNode(
+      `${inputSelectEl.value} с размери ${inputSizeA.value}x${inputSizeB.value}mm`
+    ); // Checks if there is an input and returns the result.If no input returns 0
+    newParagraph.appendChild(resultDescriptionText); // Add the input value to the created paragraph
+    if (resultDescription.firstChild) {
+      // check if there are child elements before adding the new paragraph - if yes the new element is added on top
+      resultDescription.prepend(newParagraph);
+    } else {
+      resultDescription.appendChild(newParagraph);
+    }
+  }
+};
+
+const addElementDegrees = function () {
+  const newParagraph = document.createElement('p');
+  newParagraph.classList.add('para');
+  const resultDescriptionText = document.createTextNode(
+    `${inputDegrees.value}`
+  );
+  newParagraph.appendChild(resultDescriptionText);
+  if (resultDegrees.firstChild) {
+    resultDegrees.prepend(newParagraph);
+  } else {
+    resultDegrees.appendChild(newParagraph);
+  }
+};
+
+const addElementLength = function () {
+  const newParagraph = document.createElement('p');
+  newParagraph.classList.add('para');
+  const resultDescriptionText = document.createTextNode(`${inputLength.value}`);
+  newParagraph.appendChild(resultDescriptionText);
+  if (resultLength.firstChild) {
+    resultLength.prepend(newParagraph);
+  } else {
+    resultLength.appendChild(newParagraph);
+  }
+};
+
+const addElementMaterial = function () {
+  const newParagraph = document.createElement('p');
+  newParagraph.classList.add('para');
+  const resultDescriptionText = document.createTextNode(
+    `${inputMaterialType.value}`
+  );
+  newParagraph.appendChild(resultDescriptionText);
+  if (resultMaterial.firstChild) {
+    resultMaterial.prepend(newParagraph);
+  } else {
+    resultMaterial.appendChild(newParagraph);
+  }
+};
+
+const addElementArea = function () {
+  const newParagraph = document.createElement('p');
+  newParagraph.classList.add('para');
+  const resultDescriptionText = document.createTextNode(`${calcArea()}`);
+  newParagraph.appendChild(resultDescriptionText);
+  if (resultArea.firstChild) {
+    resultArea.prepend(newParagraph);
+  } else {
+    resultArea.appendChild(newParagraph);
+  }
+};
+
+const addElementWeight = function () {
+  const newParagraph = document.createElement('p');
+  newParagraph.classList.add('para');
+  const resultDescriptionText = document.createTextNode(`${calcWeight()}`);
+  newParagraph.appendChild(resultDescriptionText);
+  if (resultWeight.firstChild) {
+    resultWeight.prepend(newParagraph);
+  } else {
+    resultWeight.appendChild(newParagraph);
+  }
+};
 
 // Add new element after clicking 'Добави' button
-document.querySelector('.btn-add').addEventListener('click', function () {});
+
+//TODO Make next paragraph to be added on top of the previous
+
+document.querySelector('.btn-add').addEventListener('click', function () {
+  addElementDescription();
+  addElementDegrees();
+  addElementLength();
+  addElementMaterial();
+  addElementArea();
+  addElementWeight();
+});
+
+// Reset all values after clicking 'Нулиране' button
+document.querySelector('.btn-reset').addEventListener('click', function () {
+  document.querySelectorAll('.para').forEach(el => el.remove());
+  inputSelectEl.value = 'Вид елемент';
+  inputSizeA.value = '';
+  inputSizeB.value = '';
+  inputSizeC.value = '';
+  inputSizeD.value = '';
+  inputDegrees.value = '';
+  inputLength.value = '';
+  inputMaterialType.value = 'Тип';
+  inputMaterialThickness.value = '';
+});

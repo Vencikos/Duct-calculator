@@ -86,8 +86,10 @@
             class="form-control"
             id="input-size-A"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
@@ -98,8 +100,10 @@
             class="form-control"
             id="input-size-B"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
@@ -110,6 +114,7 @@
             class="form-control"
             id="input-size-C"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
           />
@@ -122,6 +127,7 @@
             class="form-control"
             id="input-size-D"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
           />
@@ -134,6 +140,7 @@
             class="form-control"
             id="input-degrees"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
           />
@@ -146,16 +153,37 @@
             class="form-control"
             id="input-length"
             placeholder="Enter number"
+            value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
+          />
+        </div>
+        <div class="col">
+          <label for="input-material-thickness" class="form-label"
+            >Ламарина(дебелина)</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="input-material-thickness"
+            placeholder="Enter number"
+            value="0"
+            step="0.1"
+            min="0"
+            onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
         <div class="col">
-          <label for="input-material" class="form-label">Ламарина</label>
+          <label for="input-material-type" class="form-label"
+            >Ламарина(вид)</label
+          >
           <select
-            class="form-select select-material"
+            class="form-select input-material-type"
             aria-label="Default select example"
+            required
           >
             <option selected disabled>Тип</option>
             <option value="Поцинкована">Поцинкована</option>
@@ -184,30 +212,43 @@
 
     <div class="container">
       <div class="row d-flex">
-        <div class="col-7">
-          <h6 class="result-size A">Описание на елемента</h6>
+        <div class="col-5">
+          <h6>Описание на елемента</h6>
+          <hr class="hr" />
+          <div class="result-description"></div>
         </div>
-        <div class="col-1">
-          <h6 class="result-degrees">Градуси</h6>
+
+        <div class="col">
+          <h6>Градуси(°)</h6>
+          <hr class="hr" />
+          <div class="result-degrees"></div>
         </div>
-        <div class="col-1">
-          <h6 class="result-length">Дължина</h6>
+        <div class="col">
+          <h6>Дължина(mm)</h6>
+          <hr class="hr" />
+          <div class="result-length"></div>
         </div>
-        <div class="col-1">
-          <h6 class="result-material">Материал</h6>
+        <div class="col">
+          <h6>Ламарина</h6>
+          <hr class="hr" />
+          <div class="result-material"></div>
         </div>
-        <div class="col-1">
-          <h6 class="result-area">Площ</h6>
+        <div class="col">
+          <h6>Площ(m2)</h6>
+          <hr class="hr" />
+          <div class="result-area"></div>
         </div>
-        <div class="col-1">
-          <h6 class="result-">Тегло</h6>
+        <div class="col">
+          <h6>Тегло(kg)</h6>
+          <hr class="hr" />
+          <div class="result-weight"></div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
 
-    <footer>
+    <footer class="footer fixed-bottom">
       <div class="container">
         <div class="row d-flex justify-content-center">
           <div class="col-12 footer-text">
