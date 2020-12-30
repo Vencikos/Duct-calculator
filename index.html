@@ -79,7 +79,7 @@
           </select>
         </div>
 
-        <div class="col">
+        <div class="col inputA">
           <label for="input-size-A" class="form-label">Страна 'A'</label>
           <input
             type="number"
@@ -93,7 +93,7 @@
           />
         </div>
 
-        <div class="col">
+        <div class="col inputB">
           <label for="input-size-B" class="form-label">Страна 'B'</label>
           <input
             type="number"
@@ -107,7 +107,7 @@
           />
         </div>
 
-        <div class="col">
+        <div class="col inputC">
           <label for="input-size-C" class="form-label">Страна 'C'</label>
           <input
             type="number"
@@ -117,10 +117,11 @@
             value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
-        <div class="col">
+        <div class="col inputD">
           <label for="input-size-D" class="form-label">Страна 'D'</label>
           <input
             type="number"
@@ -130,10 +131,11 @@
             value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
-        <div class="col">
+        <div class="col inputDegrees">
           <label for="input-degrees" class="form-label">Градуси</label>
           <input
             type="number"
@@ -143,10 +145,11 @@
             value="0"
             min="0"
             onkeypress="return event.charCode != 45"
+            required
           />
         </div>
 
-        <div class="col">
+        <div class="col inputLength">
           <label for="input-length" class="form-label">Дължина</label>
           <input
             type="number"
@@ -159,7 +162,7 @@
             required
           />
         </div>
-        <div class="col">
+        <div class="col inputMaterialThickness">
           <label for="input-material-thickness" class="form-label"
             >Ламарина(дебелина)</label
           >
@@ -176,7 +179,7 @@
           />
         </div>
 
-        <div class="col">
+        <div class="col inputMaterialType">
           <label for="input-material-type" class="form-label"
             >Ламарина(вид)</label
           >
@@ -211,7 +214,7 @@
     <!-- Results field - calculated after the user clicks 'Add' button -->
 
     <div class="container">
-      <div class="row d-flex">
+      <div class="row d-flex result-row">
         <div class="col-5">
           <h6>Описание на елемента</h6>
           <hr class="hr" />

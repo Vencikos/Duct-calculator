@@ -126,7 +126,7 @@ const calcWeight = function () {
 
 const addElementDescription = function () {
   const newParagraph = document.createElement('p'); // Create a paragraph node
-  newParagraph.classList.add('para'); // Add class to the created element
+  newParagraph.classList.add('para-flexbox'); // Add class to the created element
   if (inputSelectEl.value === 'Въздуховод') {
     // Store an input value to  a variable
     const resultDescriptionText = document.createTextNode(
@@ -144,10 +144,10 @@ const addElementDescription = function () {
 
 const addElementDegrees = function () {
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('para');
   const resultDescriptionText = document.createTextNode(
     `${inputDegrees.value}`
   );
+  newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
   if (resultDegrees.firstChild) {
     resultDegrees.prepend(newParagraph);
@@ -158,8 +158,8 @@ const addElementDegrees = function () {
 
 const addElementLength = function () {
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('para');
   const resultDescriptionText = document.createTextNode(`${inputLength.value}`);
+  newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
   if (resultLength.firstChild) {
     resultLength.prepend(newParagraph);
@@ -170,10 +170,10 @@ const addElementLength = function () {
 
 const addElementMaterial = function () {
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('para');
   const resultDescriptionText = document.createTextNode(
     `${inputMaterialType.value}`
   );
+  newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
   if (resultMaterial.firstChild) {
     resultMaterial.prepend(newParagraph);
@@ -184,8 +184,8 @@ const addElementMaterial = function () {
 
 const addElementArea = function () {
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('para');
   const resultDescriptionText = document.createTextNode(`${calcArea()}`);
+  newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
   if (resultArea.firstChild) {
     resultArea.prepend(newParagraph);
@@ -196,8 +196,8 @@ const addElementArea = function () {
 
 const addElementWeight = function () {
   const newParagraph = document.createElement('p');
-  newParagraph.classList.add('para');
   const resultDescriptionText = document.createTextNode(`${calcWeight()}`);
+  newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
   if (resultWeight.firstChild) {
     resultWeight.prepend(newParagraph);
@@ -206,21 +206,43 @@ const addElementWeight = function () {
   }
 };
 
-// Add new element after clicking 'Добави' button
+// Function that adds the results from the calculations function as new paragraph
 
-//TODO Make next paragraph to be added on top of the previous
-
-document.querySelector('.btn-add').addEventListener('click', function () {
+const calc = function () {
   addElementDescription();
   addElementDegrees();
   addElementLength();
   addElementMaterial();
   addElementArea();
   addElementWeight();
+};
+
+//TODO On click to remove the results on this row
+
+//TODO To make validation for the input fields
+
+// Add new element after clicking 'Добави' button
+
+document.querySelector('.btn-add').addEventListener('click', function () {
+  calc();
+  addRemoveButton();
 });
 
+// Adds 'X' button in the description-results paragraph for each added item
+
+const addRemoveButton = function () {
+  const existingDiv = document.querySelector('.para-flexbox');
+  const newButton = document.createElement('button');
+  const newButtonText = document.createTextNode('\u00D7');
+  newButton.appendChild(newButtonText);
+  newButton.classList.add('btn', 'btn-outline-dark', 'btn-remove');
+  existingDiv.appendChild(newButton);
+};
+
 // Reset all values after clicking 'Нулиране' button
+
 document.querySelector('.btn-reset').addEventListener('click', function () {
+  document.querySelectorAll('.para-flexbox').forEach(el => el.remove());
   document.querySelectorAll('.para').forEach(el => el.remove());
   inputSelectEl.value = 'Вид елемент';
   inputSizeA.value = '';
