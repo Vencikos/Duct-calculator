@@ -130,7 +130,7 @@ const addElementDescription = function () {
   if (inputSelectEl.value === 'Въздуховод') {
     // Store an input value to  a variable
     const resultDescriptionText = document.createTextNode(
-      `${inputSelectEl.value} с размери ${inputSizeA.value}x${inputSizeB.value}mm`
+      `${inputSelectEl.value} с размери ${inputSizeA.value}x${inputSizeB.value}mm, ламарина дебелина ${inputMaterialThickness.value}mm`
     ); // Checks if there is an input and returns the result.If no input returns 0
     newParagraph.appendChild(resultDescriptionText); // Add the input value to the created paragraph
     if (resultDescription.firstChild) {
@@ -217,6 +217,19 @@ const calc = function () {
   addElementWeight();
 };
 
+const calcTotal = function () {
+  const areaResults = document.querySelector('.result-area').children;
+  let total = 0;
+  for (let i = 0; i < areaResults.length; i++) {
+    total += Number(areaResults[i].innerHTML);
+  }
+  return total.toFixed(2);
+};
+
+const resultTotal = function () {
+  document.querySelector('.area-total').textContent = calcTotal();
+};
+
 //TODO On click to remove the results on this row
 
 //TODO To make validation for the input fields
@@ -226,6 +239,11 @@ const calc = function () {
 document.querySelector('.btn-add').addEventListener('click', function () {
   calc();
   addRemoveButton();
+});
+
+document.querySelector('.btn-total').addEventListener('click', function () {
+  document.querySelector('.area-total').textContent = 0;
+  document.querySelector('.area-total').textContent = calcTotal();
 });
 
 // Adds 'X' button in the description-results paragraph for each added item
