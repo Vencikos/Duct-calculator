@@ -22,6 +22,15 @@ const resultLength = document.querySelector('.result-length');
 const resultMaterial = document.querySelector('.result-material');
 const resultArea = document.querySelector('.result-area');
 const resultWeight = document.querySelector('.result-weight');
+const resultTotalArea = document.querySelector('.area-total');
+const resultTotalWeight = document.querySelector('.weight-total');
+const resultTextTotal = document.querySelector('.text-total');
+
+// Variables for input divs
+
+const inputDivC = document.querySelector('.inputC');
+const inputDivD = document.querySelector('.inputD');
+const inputDivDegrees = document.querySelector('.inputDegrees');
 
 // Calculate area function  - calculates the area of the selected element
 
@@ -122,6 +131,26 @@ const calcWeight = function () {
   }
 };
 
+// Checks what element is selected and hides unnecessary input fields
+
+//TODO To finish the function for the rest of the elements
+
+const selectedEl = function () {
+  if (inputSelectEl.value === 'Въздуховод') {
+    document.querySelectorAll('.inputC').classList.add('hidden');
+    document.querySelectorAll('.inputD').classList.add('hidden');
+    document.querySelector('.inputDegrees').classList.add('hidden');
+  } else if (inputSelectEl.value === 'Коляно') {
+    document.querySelectorAll('.inputC').classList.add('hidden');
+    document.querySelectorAll('.inputD').classList.add('hidden');
+    inputDivDegrees.classList.remove('hidden');
+  } else if (inputSelectEl.value === 'Преход правоъгълен към правоъгълен') {
+    document.querySelectorAll('.inputC').classList.remove('hidden');
+    document.querySelectorAll('.inputD').classList.remove('hidden');
+    document.querySelector('.inputDegrees').classList.add('hidden');
+  }
+};
+
 // Add new paragraph functions for eack element
 
 const addElementDescription = function () {
@@ -206,6 +235,12 @@ const addElementWeight = function () {
   }
 };
 
+const addHr = function () {
+  const newHr = document.createElement('hr');
+  newHr.classList.add('hr');
+  document.querySelector('.para').appendChild(newHr);
+};
+
 // Function that adds the results from the calculations function as new paragraph
 
 const calc = function () {
@@ -215,9 +250,12 @@ const calc = function () {
   addElementMaterial();
   addElementArea();
   addElementWeight();
+  addHr();
 };
 
-const calcTotal = function () {
+// Calculates the total area from the added elements
+
+const calcTotalArea = function () {
   const areaResults = document.querySelector('.result-area').children;
   let total = 0;
   for (let i = 0; i < areaResults.length; i++) {
@@ -226,8 +264,15 @@ const calcTotal = function () {
   return total.toFixed(2);
 };
 
-const resultTotal = function () {
-  document.querySelector('.area-total').textContent = calcTotal();
+// Calculates the total weight from the added elements
+
+const calcTotalWeight = function () {
+  const areaResults = document.querySelector('.result-weight').children;
+  let total = 0;
+  for (let i = 0; i < areaResults.length; i++) {
+    total += Number(areaResults[i].innerHTML);
+  }
+  return total.toFixed(2);
 };
 
 //TODO On click to remove the results on this row
@@ -236,16 +281,29 @@ const resultTotal = function () {
 
 //TODO When 'Добави' button is clicked - the unnessesary fields to be hidden
 
+//EVENT LISTENERS
+
+// Checks what element is selected and removes the unnecessary fields
+
+document
+  .querySelector('.select-element')
+  .addEventListener('click', function () {
+    selectedEl();
+  });
+
 // Add new element after clicking 'Добави' button
 
 document.querySelector('.btn-add').addEventListener('click', function () {
   calc();
   addRemoveButton();
-});
-
-document.querySelector('.btn-total').addEventListener('click', function () {
-  document.querySelector('.area-total').textContent = 0;
-  document.querySelector('.area-total').textContent = calcTotal();
+  resultTotalArea.textContent = 0;
+  resultTotalArea.textContent = calcTotalArea();
+  resultTotalArea.style.fontWeight = 600;
+  resultTotalWeight.textContent = 0;
+  resultTotalWeight.textContent = calcTotalWeight();
+  resultTotalWeight.style.fontWeight = 600;
+  resultTextTotal.textContent = 'Общо';
+  resultTextTotal.style.fontWeight = 600;
 });
 
 // Adds 'X' button in the description-results paragraph for each added item
@@ -273,4 +331,6 @@ document.querySelector('.btn-reset').addEventListener('click', function () {
   inputLength.value = '';
   inputMaterialType.value = 'Тип';
   inputMaterialThickness.value = '';
+  resultTotalArea.textContent = '';
+  resultTotalWeight.textContent = '';
 });
