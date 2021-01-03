@@ -137,16 +137,16 @@ const calcWeight = function () {
 
 const selectedEl = function () {
   if (inputSelectEl.value === 'Въздуховод') {
-    document.querySelectorAll('.inputC').classList.add('hidden');
-    document.querySelectorAll('.inputD').classList.add('hidden');
+    document.querySelector('.inputC').classList.add('hidden');
+    document.querySelector('.inputD').classList.add('hidden');
     document.querySelector('.inputDegrees').classList.add('hidden');
   } else if (inputSelectEl.value === 'Коляно') {
-    document.querySelectorAll('.inputC').classList.add('hidden');
-    document.querySelectorAll('.inputD').classList.add('hidden');
+    document.querySelector('.inputC').classList.add('hidden');
+    document.querySelector('.inputD').classList.add('hidden');
     inputDivDegrees.classList.remove('hidden');
   } else if (inputSelectEl.value === 'Преход правоъгълен към правоъгълен') {
-    document.querySelectorAll('.inputC').classList.remove('hidden');
-    document.querySelectorAll('.inputD').classList.remove('hidden');
+    document.querySelector('.inputC').classList.remove('hidden');
+    document.querySelector('.inputD').classList.remove('hidden');
     document.querySelector('.inputDegrees').classList.add('hidden');
   }
 };
