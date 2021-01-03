@@ -221,6 +221,8 @@ const calc = function () {
 
 //TODO To make validation for the input fields
 
+//TODO When 'Добави' button is clicked - the unnessesary fields to be hidden
+
 // Add new element after clicking 'Добави' button
 
 document.querySelector('.btn-add').addEventListener('click', function () {
