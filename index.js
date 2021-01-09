@@ -32,6 +32,14 @@ const inputDivC = document.querySelector('.inputC');
 const inputDivD = document.querySelector('.inputD');
 const inputDivDegrees = document.querySelector('.inputDegrees');
 
+// Variable for 'X' button
+
+const removeBtn = document.getElementsByClassName('btn-remove');
+
+// Variable for elements with 'para' class
+
+const resultPara = document.getElementsByClassName('para');
+
 // Calculate area function  - calculates the area of the selected element
 
 const calcArea = function () {
@@ -235,12 +243,6 @@ const addElementWeight = function () {
   }
 };
 
-const addHr = function () {
-  const newHr = document.createElement('hr');
-  newHr.classList.add('hr');
-  document.querySelector('.para').appendChild(newHr);
-};
-
 // Function that adds the results from the calculations function as new paragraph
 
 const calc = function () {
@@ -250,13 +252,14 @@ const calc = function () {
   addElementMaterial();
   addElementArea();
   addElementWeight();
-  addHr();
 };
 
 // Calculates the total area from the added elements
 
 const calcTotalArea = function () {
-  const areaResults = document.querySelector('.result-area').children;
+  const areaResults = document.querySelectorAll(
+    '.result-area>p:not(.hidden):not(.weight-total)'
+  );
   let total = 0;
   for (let i = 0; i < areaResults.length; i++) {
     total += Number(areaResults[i].innerHTML);
@@ -267,15 +270,15 @@ const calcTotalArea = function () {
 // Calculates the total weight from the added elements
 
 const calcTotalWeight = function () {
-  const areaResults = document.querySelector('.result-weight').children;
+  const areaResults = document.querySelectorAll(
+    '.result-weight>p:not(.hidden):not(.weight-total)'
+  );
   let total = 0;
   for (let i = 0; i < areaResults.length; i++) {
     total += Number(areaResults[i].innerHTML);
   }
   return total.toFixed(2);
 };
-
-//TODO On click to remove the results on this row
 
 //TODO To make validation for the input fields
 
@@ -306,6 +309,26 @@ document.querySelector('.btn-add').addEventListener('click', function () {
   resultTextTotal.style.fontWeight = 600;
 });
 
+// When 'X' button is clicked hides all elements on that row
+
+const removeBtnCheck = function () {
+  if (removeBtn) {
+    for (let i = 0; i < removeBtn.length; i++) {
+      removeBtn[i].onclick = function () {
+        this.parentElement.classList.add('hidden');
+        resultDegrees.childNodes[i].classList.add('hidden');
+        resultLength.childNodes[i].classList.add('hidden');
+        resultArea.childNodes[i].classList.add('hidden');
+        resultWeight.childNodes[i].classList.add('hidden');
+        resultMaterial.childNodes[i].classList.add('hidden');
+        resultTotalArea.textContent = 0;
+        resultTotalArea.textContent = calcTotalArea();
+        resultTotalWeight.textContent = 0;
+        resultTotalWeight.textContent = calcTotalWeight();
+      };
+    }
+  }
+};
 // Adds 'X' button in the description-results paragraph for each added item
 
 const addRemoveButton = function () {
@@ -315,6 +338,7 @@ const addRemoveButton = function () {
   newButton.appendChild(newButtonText);
   newButton.classList.add('btn', 'btn-outline-dark', 'btn-remove');
   existingDiv.appendChild(newButton);
+  removeBtnCheck();
 };
 
 // Reset all values after clicking 'Нулиране' button
