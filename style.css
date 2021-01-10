@@ -42,6 +42,13 @@ p {
   margin-top: 20px;
 }
 
+/* Containers */
+
+.input-fields-container {
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
 /* Social icons styling */
 
 .fab {
@@ -51,14 +58,6 @@ p {
 
 .fab:hover {
   transform: scale(1.1);
-  color: #f7b538;
-}
-
-.hr {
-  width: 120%;
-  color: #000;
-  margin: 0.8rem 0;
-  opacity: 1;
 }
 
 /*Remove arrows from input fields */
@@ -69,18 +68,33 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* Other classes */
+
+.hidden {
+  display: none !important;
+}
+
+.hr {
+  width: 120%;
+  color: #000;
+  margin: 0.8rem 0;
+  opacity: 1;
+}
+
+.input-field {
+  margin-bottom: 1rem;
+}
+
+.invalid-tooltip {
+  font-size: 0.8rem !important;
+}
+
 .para-flexbox {
   display: flex;
   justify-content: space-between;
 }
 
-.hidden {
-  display: none;
-}
-
-.input-fields-container {
-  margin-bottom: 2rem;
-}
+/* Footer */
 
 .footer-text p {
   font-size: 1rem;
@@ -88,9 +102,7 @@ input::-webkit-inner-spin-button {
   text-align: center;
 }
 
-.input-field {
-  margin-bottom: 1rem;
-}
+/* Social icons */
 
 #social-icons-container {
   margin-top: 0.2rem;

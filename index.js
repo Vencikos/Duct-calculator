@@ -26,7 +26,7 @@ const resultTotalArea = document.querySelector('.area-total');
 const resultTotalWeight = document.querySelector('.weight-total');
 const resultTextTotal = document.querySelector('.text-total');
 
-// Variables for input divs
+// Variables for input divs that will be hiding if the coresponding element is selected
 
 const inputDivC = document.querySelector('.inputC');
 const inputDivD = document.querySelector('.inputD');
@@ -39,6 +39,10 @@ const removeBtn = document.getElementsByClassName('btn-remove');
 // Variable for elements with 'para' class
 
 const resultPara = document.getElementsByClassName('para');
+
+// Variable for error tooltips
+
+const tooltip = document.getElementsByClassName('invalid-tooltip');
 
 // Calculate area function  - calculates the area of the selected element
 
@@ -280,9 +284,71 @@ const calcTotalWeight = function () {
   return total.toFixed(2);
 };
 
+// Clears the input fields after the 'Добави' button is clicked
+
+const clearInput = function () {
+  inputSelectEl.textContent = 'Вид елемент';
+  inputSizeA.value = '';
+  inputSizeB.value = '';
+  inputSizeC.value = '';
+  inputSizeD.value = '';
+  inputDegrees.value = '';
+  inputLength.value = '';
+  inputMaterialType.value = 'Тип';
+  inputMaterialThickness.value = '';
+};
+
+// Clears input and result fileds after 'Нулиране' button is clicked
+
+const reset = function () {
+  const form = document.querySelectorAll('.needs-validation');
+  document.querySelectorAll('.para-flexbox').forEach(el => el.remove());
+  document.querySelectorAll('.para').forEach(el => el.remove());
+  inputSelectEl.selectedIndex = 0;
+  inputSizeA.value = '';
+  inputSizeB.value = '';
+  inputSizeC.value = '';
+  inputSizeD.value = '';
+  inputDegrees.value = '';
+  inputLength.value = '';
+  inputMaterialType.selectedIndex = 0;
+  inputMaterialThickness.value = '';
+  resultTotalArea.textContent = '';
+  resultTotalWeight.textContent = '';
+  resultTextTotal.textContent = '';
+  for (let i = 0; i < tooltip.length; i++) {
+    tooltip[i].classList.add('hidden');
+  }
+  for (let i = 0; i < form.length; i++) {
+    form[i].classList.remove('was-validated');
+  }
+};
+
 //TODO To make validation for the input fields
 
-//TODO When 'Добави' button is clicked - the unnessesary fields to be hidden
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation');
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener(
+      'submit',
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add('was-validated');
+      },
+      false
+    );
+  });
+})();
+
+//TODO When 'Добави' button is clicked - the unnessesary fields to be hidden - to finish for the rest of the elements
 
 //EVENT LISTENERS
 
@@ -297,19 +363,31 @@ document
 // Add new element after clicking 'Добави' button
 
 document.querySelector('.btn-add').addEventListener('click', function () {
-  calc();
-  addRemoveButton();
-  resultTotalArea.textContent = 0;
-  resultTotalArea.textContent = calcTotalArea();
-  resultTotalArea.style.fontWeight = 600;
-  resultTotalWeight.textContent = 0;
-  resultTotalWeight.textContent = calcTotalWeight();
-  resultTotalWeight.style.fontWeight = 600;
-  resultTextTotal.textContent = 'Общо';
-  resultTextTotal.style.fontWeight = 600;
+  // TODO Finish the statement for the rest of the elements
+
+  for (let i = 0; i < tooltip.length; i++) {
+    tooltip[i].classList.remove('hidden');
+  }
+  if (
+    document.querySelectorAll('.form-select:valid').length < 2 ||
+    document.querySelectorAll('.form-control:valid').length < 4
+  ) {
+    alert('Fill all the required fields');
+  } else {
+    calc();
+    addRemoveButton();
+    resultTotalArea.textContent = 0;
+    resultTotalArea.textContent = calcTotalArea();
+    resultTotalArea.style.fontWeight = 600;
+    resultTotalWeight.textContent = 0;
+    resultTotalWeight.textContent = calcTotalWeight();
+    resultTotalWeight.style.fontWeight = 600;
+    resultTextTotal.textContent = 'Общо';
+    resultTextTotal.style.fontWeight = 600;
+  }
 });
 
-// When 'X' button is clicked hides all elements on that row
+// When 'X' button is clicked hides all elements on that row and recalculates the area and weight of all the elements
 
 const removeBtnCheck = function () {
   if (removeBtn) {
@@ -344,17 +422,5 @@ const addRemoveButton = function () {
 // Reset all values after clicking 'Нулиране' button
 
 document.querySelector('.btn-reset').addEventListener('click', function () {
-  document.querySelectorAll('.para-flexbox').forEach(el => el.remove());
-  document.querySelectorAll('.para').forEach(el => el.remove());
-  inputSelectEl.value = 'Вид елемент';
-  inputSizeA.value = '';
-  inputSizeB.value = '';
-  inputSizeC.value = '';
-  inputSizeD.value = '';
-  inputDegrees.value = '';
-  inputLength.value = '';
-  inputMaterialType.value = 'Тип';
-  inputMaterialThickness.value = '';
-  resultTotalArea.textContent = '';
-  resultTotalWeight.textContent = '';
+  reset();
 });
