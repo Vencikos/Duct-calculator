@@ -44,6 +44,8 @@ const resultPara = document.getElementsByClassName('para');
 
 const tooltip = document.getElementsByClassName('invalid-tooltip');
 
+const form = document.querySelectorAll('.needs-validation');
+
 // Calculate area function  - calculates the area of the selected element
 
 const calcArea = function () {
@@ -287,21 +289,26 @@ const calcTotalWeight = function () {
 // Clears the input fields after the 'Добави' button is clicked
 
 const clearInput = function () {
-  inputSelectEl.textContent = 'Вид елемент';
+  inputSelectEl.selectedIndex = 0;
   inputSizeA.value = '';
   inputSizeB.value = '';
   inputSizeC.value = '';
   inputSizeD.value = '';
   inputDegrees.value = '';
   inputLength.value = '';
-  inputMaterialType.value = 'Тип';
+  inputMaterialType.selectedIndex = 0;
   inputMaterialThickness.value = '';
+  for (let i = 0; i < tooltip.length; i++) {
+    tooltip[i].classList.add('hidden');
+  }
+  setTimeout(function () {
+    form[0].classList.remove('was-validated');
+  }, 1);
 };
 
 // Clears input and result fileds after 'Нулиране' button is clicked
 
 const reset = function () {
-  const form = document.querySelectorAll('.needs-validation');
   document.querySelectorAll('.para-flexbox').forEach(el => el.remove());
   document.querySelectorAll('.para').forEach(el => el.remove());
   inputSelectEl.selectedIndex = 0;
@@ -318,9 +325,6 @@ const reset = function () {
   resultTextTotal.textContent = '';
   for (let i = 0; i < tooltip.length; i++) {
     tooltip[i].classList.add('hidden');
-  }
-  for (let i = 0; i < form.length; i++) {
-    form[i].classList.remove('was-validated');
   }
 };
 
@@ -372,7 +376,6 @@ document.querySelector('.btn-add').addEventListener('click', function () {
     document.querySelectorAll('.form-select:valid').length < 2 ||
     document.querySelectorAll('.form-control:valid').length < 4
   ) {
-    alert('Fill all the required fields');
   } else {
     calc();
     addRemoveButton();
@@ -384,6 +387,7 @@ document.querySelector('.btn-add').addEventListener('click', function () {
     resultTotalWeight.style.fontWeight = 600;
     resultTextTotal.textContent = 'Общо';
     resultTextTotal.style.fontWeight = 600;
+    clearInput();
   }
 });
 
