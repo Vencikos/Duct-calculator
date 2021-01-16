@@ -13,6 +13,7 @@ const inputMaterialType = document.querySelector('.input-material-type');
 const inputMaterialThickness = document.querySelector(
   '#input-material-thickness'
 );
+const inputQuantity = document.querySelector('.input-quantity');
 
 //Variables for result fields
 
@@ -25,6 +26,7 @@ const resultWeight = document.querySelector('.result-weight');
 const resultTotalArea = document.querySelector('.area-total');
 const resultTotalWeight = document.querySelector('.weight-total');
 const resultTextTotal = document.querySelector('.text-total');
+const resultQuantity = document.querySelector('.result-quantity');
 
 // Variables for input divs that will be hiding if the coresponding element is selected
 
@@ -53,7 +55,8 @@ const calcArea = function () {
   if (inputSelectEl.value === 'Въздуховод') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Коляно') {
@@ -61,7 +64,8 @@ const calcArea = function () {
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
       (((Number(inputSizeA.value) / 1000) * Number(inputDegrees.value) * 3.14) /
         180 +
-        (2 * Number(inputLength.value)) / 1000);
+        (2 * Number(inputLength.value)) / 1000) *
+      inputQuantity.value;
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Изместване') {
@@ -69,13 +73,15 @@ const calcArea = function () {
 
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     return Number(result.toFixed(2));
   } else if (inputSelectEl.value === 'Преход правоъгълен към правоъгълен') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -83,7 +89,8 @@ const calcArea = function () {
   } else if (inputSelectEl.value === 'Преход към кръгъл') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -91,7 +98,8 @@ const calcArea = function () {
   } else if (inputSelectEl.value === 'Тройник') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -99,7 +107,8 @@ const calcArea = function () {
   } else if (inputSelectEl.value === 'Капак') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -107,7 +116,8 @@ const calcArea = function () {
   } else if (inputSelectEl.value === 'Смукател стенен') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -115,7 +125,8 @@ const calcArea = function () {
   } else if (inputSelectEl.value === 'Смукател островен') {
     result =
       (((Number(inputSizeA.value) + Number(inputSizeB.value)) * 2) / 1000) *
-      (Number(inputLength.value) / 1000);
+      (Number(inputLength.value) / 1000) *
+      inputQuantity.value;
 
     //TODO
 
@@ -173,7 +184,13 @@ const addElementDescription = function () {
   if (inputSelectEl.value === 'Въздуховод') {
     // Store an input value to  a variable
     const resultDescriptionText = document.createTextNode(
-      `${inputSelectEl.value} с размери ${inputSizeA.value}x${inputSizeB.value}mm, ламарина дебелина ${inputMaterialThickness.value}mm`
+      `${inputSelectEl.value} с размери ${inputSizeA.value}x${
+        inputSizeB.value
+      }mm, L = ${
+        inputLength.value
+      }mm, ламарина (${inputMaterialType.value.toLowerCase()}) с дебелина ${
+        inputMaterialThickness.value
+      }mm`
     ); // Checks if there is an input and returns the result.If no input returns 0
     newParagraph.appendChild(resultDescriptionText); // Add the input value to the created paragraph
     if (resultDescription.firstChild) {
@@ -185,19 +202,19 @@ const addElementDescription = function () {
   }
 };
 
-const addElementDegrees = function () {
-  const newParagraph = document.createElement('p');
-  const resultDescriptionText = document.createTextNode(
-    `${inputDegrees.value}`
-  );
-  newParagraph.classList.add('para');
-  newParagraph.appendChild(resultDescriptionText);
-  if (resultDegrees.firstChild) {
-    resultDegrees.prepend(newParagraph);
-  } else {
-    resultDegrees.appendChild(newParagraph);
-  }
-};
+// const addElementDegrees = function () {
+//   const newParagraph = document.createElement('p');
+//   const resultDescriptionText = document.createTextNode(
+//     `${inputDegrees.value}`
+//   );
+//   newParagraph.classList.add('para');
+//   newParagraph.appendChild(resultDescriptionText);
+//   if (resultDegrees.firstChild) {
+//     resultDegrees.prepend(newParagraph);
+//   } else {
+//     resultDegrees.appendChild(newParagraph);
+//   }
+// };
 
 const addElementLength = function () {
   const newParagraph = document.createElement('p');
@@ -211,17 +228,31 @@ const addElementLength = function () {
   }
 };
 
-const addElementMaterial = function () {
+// const addElementMaterial = function () {
+//   const newParagraph = document.createElement('p');
+//   const resultDescriptionText = document.createTextNode(
+//     `${inputMaterialType.value}`
+//   );
+//   newParagraph.classList.add('para');
+//   newParagraph.appendChild(resultDescriptionText);
+//   if (resultMaterial.firstChild) {
+//     resultMaterial.prepend(newParagraph);
+//   } else {
+//     resultMaterial.appendChild(newParagraph);
+//   }
+// };
+
+const addElementQuantity = function () {
   const newParagraph = document.createElement('p');
   const resultDescriptionText = document.createTextNode(
-    `${inputMaterialType.value}`
+    `${inputQuantity.value}`
   );
   newParagraph.classList.add('para');
   newParagraph.appendChild(resultDescriptionText);
-  if (resultMaterial.firstChild) {
-    resultMaterial.prepend(newParagraph);
+  if (resultQuantity.firstChild) {
+    resultQuantity.prepend(newParagraph);
   } else {
-    resultMaterial.appendChild(newParagraph);
+    resultQuantity.appendChild(newParagraph);
   }
 };
 
@@ -253,11 +284,12 @@ const addElementWeight = function () {
 
 const calc = function () {
   addElementDescription();
-  addElementDegrees();
+  // addElementDegrees();
   addElementLength();
-  addElementMaterial();
+  // addElementMaterial();
   addElementArea();
   addElementWeight();
+  addElementQuantity();
 };
 
 // Calculates the total area from the added elements
@@ -296,6 +328,7 @@ const clearInput = function () {
   inputSizeD.value = '';
   inputDegrees.value = '';
   inputLength.value = '';
+  inputQuantity.value = '';
   inputMaterialType.selectedIndex = 0;
   inputMaterialThickness.value = '';
   for (let i = 0; i < tooltip.length; i++) {
@@ -318,6 +351,7 @@ const reset = function () {
   inputSizeD.value = '';
   inputDegrees.value = '';
   inputLength.value = '';
+  inputQuantity.value = '';
   inputMaterialType.selectedIndex = 0;
   inputMaterialThickness.value = '';
   resultTotalArea.textContent = '';
@@ -385,8 +419,8 @@ document.querySelector('.btn-add').addEventListener('click', function () {
     resultTotalWeight.textContent = 0;
     resultTotalWeight.textContent = calcTotalWeight();
     resultTotalWeight.style.fontWeight = 600;
-    resultTextTotal.textContent = 'Общо';
-    resultTextTotal.style.fontWeight = 600;
+    // resultTextTotal.textContent = 'Общо';
+    // resultTextTotal.style.fontWeight = 600;
     clearInput();
   }
 });
@@ -398,11 +432,12 @@ const removeBtnCheck = function () {
     for (let i = 0; i < removeBtn.length; i++) {
       removeBtn[i].onclick = function () {
         this.parentElement.classList.add('hidden');
-        resultDegrees.childNodes[i].classList.add('hidden');
+        // resultDegrees.childNodes[i].classList.add('hidden');
         resultLength.childNodes[i].classList.add('hidden');
         resultArea.childNodes[i].classList.add('hidden');
         resultWeight.childNodes[i].classList.add('hidden');
-        resultMaterial.childNodes[i].classList.add('hidden');
+        resultQuantity.childNodes[i].classList.add('hidden');
+        // resultMaterial.childNodes[i].classList.add('hidden');
         resultTotalArea.textContent = 0;
         resultTotalArea.textContent = calcTotalArea();
         resultTotalWeight.textContent = 0;

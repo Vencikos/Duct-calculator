@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
 
-:root {
-  --green: #92c9b1;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +13,7 @@ html {
 html,
 body {
   font-family: 'Mukta', sans-serif;
+  width: 100%;
 }
 
 body {
@@ -39,7 +36,6 @@ p {
 
 .btn-add,
 .btn-reset {
-  margin-top: 20px;
 }
 
 /* Containers */
@@ -74,19 +70,36 @@ input::-webkit-inner-spin-button {
   display: none !important;
 }
 
-.hr {
-  width: 120%;
-  color: #000;
-  margin: 0.8rem 0;
-  opacity: 1;
-}
-
 .input-field {
   margin-bottom: 1rem;
 }
 
 .invalid-tooltip {
-  font-size: 0.8rem !important;
+  font-size: 0.65rem !important;
+}
+
+@media (max-width: 767px) {
+  body,
+  input,
+  select,
+  button,
+  h6 {
+    font-size: 0.8rem !important;
+  }
+
+  .invalid-tooltip {
+    font-size: 0.6rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  body {
+    font-size: 0.8rem !important;
+  }
+
+  .invalid-tooltip {
+    font-size: 0.6rem !important;
+  }
 }
 
 .para-flexbox {

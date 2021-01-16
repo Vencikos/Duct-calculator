@@ -42,7 +42,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav text-center">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
@@ -56,166 +56,193 @@
 
     <div class="container">
       <form class="needs-validation" novalidate>
-        <div class="row align-items-end input-fields-container">
-          <div class="col-2 position-relative">
-            <label for="formGroupExampleInput" class="form-label"
-              >Елемент</label
+        <div class="row input-fields-container">
+          <div class="row align-items-end">
+            <div class="col-xl-2 col-md-4 mt-4 position-relative">
+              <label for="formGroupExampleInput" class="form-label"
+                >Елемент</label
+              >
+              <select
+                class="form-select select-element input"
+                aria-label="Default select example"
+                required
+              >
+                <option selected disabled hidden aria-required="true" value="">
+                  Вид елемент
+                </option>
+                <option value="Въздуховод">Въздуховод</option>
+                <option value="Коляно">Коляно</option>
+                <option value="Изместване">Изместване</option>
+                <option value="Преход правоъгълен към правоъгълен">
+                  Преход правоъгълен към правоъгълен
+                </option>
+                <option value="Преход правоъгълен към кръгъл">
+                  Преход правоъгълен към кръгъл
+                </option>
+                <option value="Тройник">Тройник</option>
+                <option value="Капак">Капак</option>
+                <option value="Смукател стенен">Смукател стенен</option>
+                <option value="Смукател островен">Смукател островен</option>
+              </select>
+              <div class="invalid-tooltip">Choose option</div>
+            </div>
+
+            <div class="col-xl-2 col-md-2 col-6 mt-4 inputA position-relative">
+              <label for="input-size-A" class="form-label">Страна A</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-size-A"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
+
+            <div class="col-xl-2 col-md-2 col-6 mt-4 inputB position-relative">
+              <label for="input-size-B" class="form-label">Страна B</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-size-B"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
+
+            <div class="col-xl-2 col-md-2 col-6 mt-4 inputC position-relative">
+              <label for="input-size-C" class="form-label">Страна C</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-size-C"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
+
+            <div class="col-xl-2 col-md-2 col-6 mt-4 inputD position-relative">
+              <label for="input-size-D" class="form-label">Страна D</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-size-D"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
+
+            <div
+              class="col-xl-2 col-md col-6 inputDegrees mt-4 position-relative"
             >
-            <select
-              class="form-select select-element input"
-              aria-label="Default select example"
-              required
+              <label for="input-degrees" class="form-label">Градуси</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-degrees"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
+
+            <div
+              class="col-xl-2 col-md col-6 mt-4 inputLength position-relative"
             >
-              <option selected disabled hidden aria-required="true" value="">
-                Вид елемент
-              </option>
-              <option value="Въздуховод">Въздуховод</option>
-              <option value="Коляно">Коляно</option>
-              <option value="Изместване">Изместване</option>
-              <option value="Преход правоъгълен към правоъгълен">
-                Преход правоъгълен към правоъгълен
-              </option>
-              <option value="Преход правоъгълен към кръгъл">
-                Преход правоъгълен към кръгъл
-              </option>
-              <option value="Тройник">Тройник</option>
-              <option value="Капак">Капак</option>
-              <option value="Смукател стенен">Смукател стенен</option>
-              <option value="Смукател островен">Смукател островен</option>
-            </select>
-            <div class="invalid-tooltip">Choose option</div>
-          </div>
+              <label for="input-length" class="form-label">Дължина</label>
+              <input
+                type="number"
+                class="form-control input"
+                id="input-length"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
 
-          <div class="col inputA position-relative">
-            <label for="input-size-A" class="form-label">Страна A</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-size-A"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputB position-relative">
-            <label for="input-size-B" class="form-label">Страна B</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-size-B"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputC position-relative">
-            <label for="input-size-C" class="form-label">Страна C</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-size-C"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputD position-relative">
-            <label for="input-size-D" class="form-label">Страна D</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-size-D"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputDegrees position-relative">
-            <label for="input-degrees" class="form-label">Градуси</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-degrees"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputLength position-relative">
-            <label for="input-length" class="form-label">Дължина</label>
-            <input
-              type="number"
-              class="form-control input"
-              id="input-length"
-              placeholder="Enter number"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
-
-          <div class="col inputMaterialThickness position-relative">
-            <label for="input-material-thickness" class="form-label"
-              >Ламарина(дебелина)</label
+            <div
+              class="col-md col-6 mt-4 inputMaterialThickness position-relative"
             >
-            <input
-              type="number"
-              class="form-control input"
-              id="input-material-thickness"
-              placeholder="Enter number"
-              step="0.1"
-              min="0"
-              onkeypress="return event.charCode != 45"
-              required
-            />
-            <div class="invalid-tooltip">Enter number</div>
-          </div>
+              <label for="input-material-thickness" class="form-label"
+                >Ламарина(дебелина)</label
+              >
+              <input
+                type="number"
+                class="form-control input"
+                id="input-material-thickness"
+                placeholder="Enter number"
+                step="0.1"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
 
-          <div class="col inputMaterialType position-relative">
-            <label for="input-material-type" class="form-label"
-              >Ламарина(вид)</label
+            <div class="col-md col-6 mt-4 inputMaterialType position-relative">
+              <label for="input-material-type" class="form-label"
+                >Ламарина(вид)</label
+              >
+              <select
+                class="form-select input-material-type input"
+                aria-label="Default select example"
+                required
+              >
+                <option selected disabled hidden value="">Тип</option>
+                <option value="Поцинкована">Поцинкована</option>
+                <option value="Черна">Черна</option>
+                <option value="Алуминиева">Алуминиева</option>
+                <option value="Неръждаема">Неръждаема</option>
+                <option value="Медна">Медна</option>
+              </select>
+              <div class="invalid-tooltip">Choose option</div>
+            </div>
+
+            <div
+              class="col-xl-2 col-md col-6 mt-4 inputLength position-relative"
             >
-            <select
-              class="form-select input-material-type input"
-              aria-label="Default select example"
-              required
-            >
-              <option selected disabled hidden value="">Тип</option>
-              <option value="Поцинкована">Поцинкована</option>
-              <option value="Черна">Черна</option>
-              <option value="Алуминиева">Алуминиева</option>
-              <option value="Неръждаема">Неръждаема</option>
-              <option value="Медна">Медна</option>
-            </select>
-            <div class="invalid-tooltip">Choose option</div>
-          </div>
+              <label for="input-quantity" class="form-label">Брой</label>
+              <input
+                type="number"
+                class="form-control input-quantity input"
+                id="input-quantity"
+                placeholder="Enter number"
+                min="0"
+                onkeypress="return event.charCode != 45"
+                required
+              />
+              <div class="invalid-tooltip">Enter number</div>
+            </div>
 
-          <div class="col">
-            <button type="submit" class="btn btn-add w-100 btn-outline-dark">
-              Добави
-            </button>
-          </div>
+            <div class="col-md mt-5">
+              <button type="submit" class="btn btn-add w-100 btn-outline-dark">
+                Добави
+              </button>
+            </div>
 
-          <div class="col">
-            <button type="button" class="btn btn-reset w-100 btn-outline-dark">
-              Нулиране
-            </button>
+            <div class="col-md mt-3">
+              <button
+                type="button"
+                class="btn btn-reset w-100 btn-outline-dark"
+              >
+                Нулиране
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -225,37 +252,42 @@
 
     <div class="container">
       <div class="row d-flex result-row">
-        <div class="col-5">
+        <div class="col-md-4 col-12">
           <h6>Описание на елемента</h6>
           <hr class="hr" />
           <div class="result-description"></div>
         </div>
 
-        <div class="col">
+        <!-- <div class="col-md-1 col-4">
           <h6>Градуси(°)</h6>
           <hr class="hr" />
           <div class="result-degrees"></div>
-        </div>
-        <div class="col">
+        </div> -->
+        <div class="col-md-2 col-4">
           <h6>Дължина(mm)</h6>
           <hr class="hr" />
           <div class="result-length"></div>
         </div>
-        <div class="col">
+        <div class="col-md-2 col-2">
+          <h6>Брой</h6>
+          <hr class="hr" />
+          <div class="result-quantity"></div>
+        </div>
+        <!-- <div class="col-md-2 col-4">
           <h6>Ламарина(тип)</h6>
           <hr class="hr" />
           <div class="result-material">
             <p class="text-total"></p>
           </div>
-        </div>
-        <div class="col">
+        </div> -->
+        <div class="col-md-2 col-3">
           <h6>Площ(m2)</h6>
           <hr class="hr" />
           <div class="result-area">
             <p class="area-total"></p>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-2 col-3">
           <h6>Тегло(kg)</h6>
           <hr class="hr" />
           <div class="result-weight">
@@ -267,7 +299,7 @@
 
     <!-- Footer -->
 
-    <footer class="footer fixed-bottom">
+    <footer class="footer d-none d-sm-block fixed-bottom">
       <div class="container">
         <div class="row d-flex justify-content-center">
           <div class="col-12 footer-text">
