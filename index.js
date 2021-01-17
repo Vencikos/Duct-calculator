@@ -177,7 +177,7 @@ const selectedEl = function () {
 };
 
 // Add new paragraph functions for eack element
-
+//TODO The rest of the elements
 const addElementDescription = function () {
   const newParagraph = document.createElement('p'); // Create a paragraph node
   newParagraph.classList.add('para-flexbox'); // Add class to the created element
@@ -356,13 +356,11 @@ const reset = function () {
   inputMaterialThickness.value = '';
   resultTotalArea.textContent = '';
   resultTotalWeight.textContent = '';
-  resultTextTotal.textContent = '';
+  // resultTextTotal.textContent = '';
   for (let i = 0; i < tooltip.length; i++) {
     tooltip[i].classList.add('hidden');
   }
 };
-
-//TODO To make validation for the input fields
 
 // Example starter JavaScript for disabling form submissions if there are invalid fields
 (function () {
