@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Calculator</title>
+    <title>Duct Calculator</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="../style.css" />
 
     <!-- Font Awesome link -->
     <script
@@ -47,7 +47,9 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="index.html">BG</a>
+              <a class="nav-link" aria-current="page" href="../index.html"
+                >BG</a
+              >
             </li>
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/EN/index.html"
@@ -68,7 +70,7 @@
           <div class="row align-items-end">
             <div class="col-xl-2 col-md-4 mt-4 position-relative">
               <label for="formGroupExampleInput" class="form-label"
-                >Елемент</label
+                >Element</label
               >
               <select
                 class="form-select select-element input"
@@ -76,16 +78,16 @@
                 required
               >
                 <option selected disabled hidden aria-required="true" value="">
-                  Вид елемент
+                  Element type
                 </option>
-                <option value="Въздуховод">Въздуховод</option>
-                <option value="Коляно">Коляно</option>
+                <option value="Въздуховод">Duct</option>
+                <option value="Коляно">Elbow</option>
                 <option value="Изместване">Изместване</option>
                 <option value="Преход правоъгълен към правоъгълен">
-                  Преход правоъгълен към правоъгълен
+                  Transition rectangle to rectangle
                 </option>
                 <option value="Преход правоъгълен към кръгъл">
-                  Преход правоъгълен към кръгъл
+                  Transition rectangle to round
                 </option>
                 <option value="Тройник">Тройник</option>
                 <option value="Капак">Капак</option>
@@ -96,7 +98,7 @@
             </div>
 
             <div class="col-xl-2 col-md-2 col-6 mt-4 inputA position-relative">
-              <label for="input-size-A" class="form-label">Страна A</label>
+              <label for="input-size-A" class="form-label">Side A</label>
               <input
                 type="number"
                 class="form-control input"
@@ -110,7 +112,7 @@
             </div>
 
             <div class="col-xl-2 col-md-2 col-6 mt-4 inputB position-relative">
-              <label for="input-size-B" class="form-label">Страна B</label>
+              <label for="input-size-B" class="form-label">Side B</label>
               <input
                 type="number"
                 class="form-control input"
@@ -124,7 +126,7 @@
             </div>
 
             <div class="col-xl-2 col-md-2 col-6 mt-4 inputC position-relative">
-              <label for="input-size-C" class="form-label">Страна C</label>
+              <label for="input-size-C" class="form-label">Side C</label>
               <input
                 type="number"
                 class="form-control input"
@@ -138,7 +140,7 @@
             </div>
 
             <div class="col-xl-2 col-md-2 col-6 mt-4 inputD position-relative">
-              <label for="input-size-D" class="form-label">Страна D</label>
+              <label for="input-size-D" class="form-label">Side D</label>
               <input
                 type="number"
                 class="form-control input"
@@ -154,7 +156,7 @@
             <div
               class="col-xl-2 col-md col-6 inputDegrees mt-4 position-relative"
             >
-              <label for="input-degrees" class="form-label">Градуси</label>
+              <label for="input-degrees" class="form-label">Degrees</label>
               <input
                 type="number"
                 class="form-control input"
@@ -170,7 +172,7 @@
             <div
               class="col-xl-2 col-md col-6 mt-4 inputLength position-relative"
             >
-              <label for="input-length" class="form-label">Дължина</label>
+              <label for="input-length" class="form-label">Length</label>
               <input
                 type="number"
                 class="form-control input"
@@ -187,7 +189,7 @@
               class="col-md col-6 mt-4 inputMaterialThickness position-relative"
             >
               <label for="input-material-thickness" class="form-label"
-                >Ламарина(дебелина)</label
+                >Sheet metal(thickness)</label
               >
               <input
                 type="number"
@@ -204,7 +206,7 @@
 
             <div class="col-md col-6 mt-4 inputMaterialType position-relative">
               <label for="input-material-type" class="form-label"
-                >Ламарина(вид)</label
+                >Sheet metal(type)</label
               >
               <select
                 class="form-select input-material-type input"
@@ -212,11 +214,11 @@
                 required
               >
                 <option selected disabled hidden value="">Тип</option>
-                <option value="Поцинкована">Поцинкована</option>
-                <option value="Черна">Черна</option>
-                <option value="Алуминиева">Алуминиева</option>
-                <option value="Неръждаема">Неръждаема</option>
-                <option value="Медна">Медна</option>
+                <option value="Поцинкована">Galvanized</option>
+                <option value="Черна">Black</option>
+                <option value="Алуминиева">Aluminium</option>
+                <option value="Неръждаема">Stainless</option>
+                <option value="Медна">Copper</option>
               </select>
               <div class="invalid-tooltip">Choose option</div>
             </div>
@@ -224,7 +226,7 @@
             <div
               class="col-xl-2 col-md col-6 mt-4 inputLength position-relative"
             >
-              <label for="input-quantity" class="form-label">Брой</label>
+              <label for="input-quantity" class="form-label">Quantity</label>
               <input
                 type="number"
                 class="form-control input-quantity input"
@@ -239,7 +241,7 @@
 
             <div class="col-md mt-5">
               <button type="submit" class="btn btn-add w-100 btn-outline-dark">
-                Добави
+                Add
               </button>
             </div>
 
@@ -248,7 +250,7 @@
                 type="button"
                 class="btn btn-reset w-100 btn-outline-dark"
               >
-                Нулиране
+                Reset
               </button>
             </div>
           </div>
@@ -261,7 +263,7 @@
     <div class="container">
       <div class="row d-flex result-row">
         <div class="col-md-7 col-12 mt-2">
-          <h6>Описание на елемента</h6>
+          <h6>Element description</h6>
           <hr class="hr" />
           <div class="result-description row"></div>
         </div>
@@ -272,12 +274,12 @@
           <div class="result-degrees"></div>
         </div> -->
         <div class="col-md-2 col-4 mt-2">
-          <h6>Дължина(mm)</h6>
+          <h6>Length(mm)</h6>
           <hr class="hr" />
           <div class="result-length"></div>
         </div>
         <div class="col-md-1 col-2 mt-2">
-          <h6>Брой</h6>
+          <h6>Qty</h6>
           <hr class="hr" />
           <div class="result-quantity"></div>
         </div>
@@ -289,14 +291,14 @@
           </div>
         </div> -->
         <div class="col-md-1 col-3 mt-2">
-          <h6>Площ(m2)</h6>
+          <h6>Area(m2)</h6>
           <hr class="hr" />
           <div class="result-area">
             <p class="area-total"></p>
           </div>
         </div>
         <div class="col-md-1 col-3 mt-2">
-          <h6>Тегло(kg)</h6>
+          <h6>Weight(kg)</h6>
           <hr class="hr" />
           <div class="result-weight">
             <p class="weight-total"></p>
